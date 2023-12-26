@@ -1,0 +1,15 @@
+body{
+  background-image: url(../images/1155140.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.text-center {
+  text-align: center!important;
+  padding-top: 40%;
+}
+
+p{
+  color: white;
+  font-size: large;
+}

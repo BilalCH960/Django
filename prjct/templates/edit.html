@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  </head>
+  <body style="background-color:#e4f7fd">
+       
+
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+      <strong>{{message}}</strong> 
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %} 
+
+
+
+    <div class="container mt-3">
+
+      <div class="row justify-content-center">
+
+
+        <div class="col-md-4">
+          <h5 class="text-black">Edit User</h5>
+          
+
+          <form action="/update/{{i.id}}" method="post">
+            {% csrf_token %}
+
+          <label class="text-black">User Name</label>
+          <div class="form-group">
+            <input type="text" class="form-control" name="username" value="{{i.username}}" Required>
+
+          </div>
+
+          <label class="text-black mt-3">First Name</label>
+          <div class="form-group">
+            <input type="text" class="form-control" name="firstname" value="{{i.first_name}}" Required>
+
+          </div>
+
+          <label class="text-black mt-3">Last Name</label>
+          <div class="form-group">
+            <input type="text" class="form-control" name="lastname" value= "{{i.last_name}}"Required>
+
+          </div>
+
+          <label class="text-black mt-3">Email</label>
+          <div class="form-group">
+            <input type="email" class="form-control" name="email" value="{{i.email}}" Required>
+
+          </div>
+
+          <div class="d-grid gap-2 mt-4">
+            <button class="btn btn-primary" type="submit">Update</button>
+          </div>
+        </form>
+        <br>
+
+        <div class="form-group">
+          <div class="d-grid gap-2">
+            <a class="btn btn-primary" type="submit" href="{% url 'adminpanel' %}">Back to Admin panel</a>
+          </div>
+
+        </div>
+
+        </div>
+
+      </div>
+
+    </div> 
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>
